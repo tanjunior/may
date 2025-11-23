@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
+	"os"
 
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
@@ -10,10 +11,14 @@ import (
 
 func db() *gorm.DB {
 
-	// Load from environment variables
-	dsn := "postgresql://neondb_owner:npg_8Bev2qcJCoRU@ep-mute-cake-a1wpo6dc-pooler.ap-southeast-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require"
+	// Load DSN from environment variables to avoid committing secrets.
+	// Supports `DATABASE_URL` (common) or `POSTGRES_DSN` (as used in README).
+	dsn := os.Getenv("DATABASE_URL")
 	if dsn == "" {
-		log.Fatal("DATABASE_URL is not set")
+		dsn = os.Getenv("POSTGRES_DSN")
+	}
+	if dsn == "" {
+		log.Fatal("DATABASE_URL or POSTGRES_DSN is not set")
 	}
 
 	// Connect to the database
@@ -22,7 +27,7 @@ func db() *gorm.DB {
 		log.Fatalf("Failed to connect to database: %v", err)
 	}
 
-	fmt.Println("Connected to Railway PostgreSQL database!")
+	fmt.Println("Connected to PostgreSQL database!")
 
 	return db
 
