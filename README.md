@@ -1,9 +1,3 @@
-Fullstack example
-
-Backend (GO)
-
-Frontend (TypeScript)
-
 # may — Fullstack Example
 
 A small fullstack example showing a Go backend and a React + TypeScript frontend.
