@@ -15,12 +15,12 @@ A small fullstack example showing a Go backend and a React + TypeScript frontend
 - React
 - TypeScript
 - Vite
-- Bun / npm (frontend tooling)
+- Bun (frontend tooling)
 
 ## Prerequisites
 
 - Go (1.20+ recommended)
-- Node.js / Bun (for frontend) — either `npm`/`pnpm`/`yarn` works; this repo uses `bun` in examples
+ - Node.js / Bun (for frontend) — Bun is preferred in these examples; other managers such as `pnpm` or `yarn` may also work.
 - PostgreSQL (or compatible DB) if you want to run the backend against a real database
 
 ## Quickstart
@@ -53,13 +53,9 @@ Run backend and frontend in separate terminals.
 
 	`bun install`
 
-	Or with npm:
-
-	`npm install`
-
 3. Start the dev server:
 
-	`bun dev`
+	`bun run dev`
 
 The frontend dev server (Vite) typically runs on `http://localhost:5173` and the backend on the port configured in the Go server.
 
