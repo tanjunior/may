@@ -20,12 +20,12 @@ export interface SuccessEnvelope<T> {
 }
 
 export interface Product {
-  id: number;
-  code: string;
-  price: number;
-  createdAt: string;
-  updatedAt: string;
-  deletedAt: string | null;
+  ID: number;
+  Code: string;
+  Price: number;
+  CreatedAt: string;
+  UpdatedAt: string;
+  DeletedAt: string | null;
 }
 
 export type ProductListResponse = SuccessEnvelope<Product[]>;

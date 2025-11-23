@@ -35,7 +35,7 @@ export default function CRUDExamples() {
         code: createState.code,
         price: Number(createState.price),
       });
-      setMessage(`Created id=${p.id} code=${p.code} price=${p.price}`);
+      setMessage(`Created id=${p.ID} code=${p.Code} price=${p.Price}`);
       setCreateState({ code: "", price: "" });
     } catch (err: any) {
       setMessage(err?.message || String(err));
@@ -77,7 +77,7 @@ export default function CRUDExamples() {
       if (updateState.code) payload.code = updateState.code;
       if (updateState.price) payload.price = Number(updateState.price);
       const p = await updateProductById(id, payload);
-      setMessage(`Updated id=${p.id} code=${p.code} price=${p.price}`);
+      setMessage(`Updated id=${p.ID} code=${p.Code} price=${p.Price}`);
       setUpdateState({ id: "", code: "", price: "" });
     } catch (err: any) {
       setMessage(err?.message || String(err));
